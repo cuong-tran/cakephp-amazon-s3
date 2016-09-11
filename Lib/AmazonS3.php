@@ -115,9 +115,12 @@ class AmazonS3 {
  * @return void
  * @author Rob Mcvey
  **/
-	public function put($localPath , $remoteDir = null) {
+	public function put($localPath , $remoteDir = null, $remoteFile = null) {
 
 		// Base filename
+		if ($remoteFile)
+			$file = basename($remoteFile);
+		else
 		$file = basename($localPath);
 
 		// File remote/local files
